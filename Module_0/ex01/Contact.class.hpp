@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.class.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 19:09:51 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/11/30 19:41:22 by lsouquie         ###   ########.fr       */
+/*   Updated: 2024/01/03 18:14:02 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define CONTACT_CLASS_H
 
 #include <iostream>
+#include <iomanip>
+#include <string>
 
 class Contact {
 	
@@ -24,7 +26,6 @@ private:
 	std::string _NickName;
 	std::string _PhoneNumber;
 	std::string _DarkestSecret;
-	int 		_index;
 
 public:
 
@@ -35,6 +36,10 @@ public:
 	void	set_NickName(std::string input);
 	void	set_PhoneNumber(std::string input);
 	void	set_DarkestSecret(std::string input);
+	int 	init_column(int i);
+	void 	print_column(std::string output);
+	void	display_contact(void);
+
 };
 
 #endif

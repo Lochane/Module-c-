@@ -8,7 +8,7 @@ all: $(NAME)
 
 $(NAME) : 
 			@echo "			-> Compiling $(NAME)..."
-			@$(CC) $(CFLAGS) $(SRC) -o $@
+			@$(CC) $(FLAGS) $(SRC) -o $@
 			@echo "			-> Finished $(NAME)"
 
 clean:

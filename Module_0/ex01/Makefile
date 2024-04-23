@@ -8,8 +8,13 @@ all: $(NAME)
 
 $(NAME) : 
 			@echo "			-> Compiling $(NAME)..."
-			@$(CC) $(CFLAGS) $(SRC) -o $@
+			@$(CC) $(FLAGS) $(SRC) -o $@
 			@echo "			-> Finished $(NAME)"
+
+valgrind: all
+		valgrind --trace-children=yes \
+		--leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes    \
+    	./PhoneBook
 
 clean:
 		@rm -rf $(NAME)

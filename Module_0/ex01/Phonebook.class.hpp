@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 18:33:49 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/11/30 19:53:31 by lsouquie         ###   ########.fr       */
+/*   Updated: 2024/01/15 15:23:38 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,19 @@ class PhoneBook {
 private:
 	
 	Contact _contacts[8];
-	void	_read_input(void);
 
 public:
 	
 	std::string input;
 	int index;
+	int max_contact;
 
 	PhoneBook(void);
 	~PhoneBook(void);
 	
+	int  verify_digit(std::string str);
 	void add_contact(PhoneBook *book);
-	int	find_index(PhoneBook book);
-	// void search_contact(Phonebook book);
+	void search_contact(PhoneBook *book);	
 };
 
 #endif
