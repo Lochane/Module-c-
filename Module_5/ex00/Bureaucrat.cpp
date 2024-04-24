@@ -6,12 +6,11 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 17:45:27 by lsouquie          #+#    #+#             */
-/*   Updated: 2024/04/24 17:09:54 by lsouquie         ###   ########.fr       */
+/*   Updated: 2024/04/24 14:53:45 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
 
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(37){
 	if (this->_grade >= 150)
@@ -29,7 +28,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 	return ;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& rhs) : _name(rhs._name) {
+Bureaucrat::Bureaucrat(const Bureaucrat& rhs) : _name(rhs._name){
 	*this = rhs;
 }
 
@@ -55,16 +54,6 @@ const std::string Bureaucrat::getName() const{
 
 int	Bureaucrat::getGrade() const{
 	return this->_grade;
-}
-
-void Bureaucrat::signForm(Form &form){
-	try {
-		form.beSigned(*this);
-		std::cout << (*this).getName() << " signed " << form.getName() << std::endl;
-	}
-	catch(std::exception &e){
-		std::cout << (*this).getName() << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
-	}
 }
 
 void Bureaucrat::incrementGrade(){

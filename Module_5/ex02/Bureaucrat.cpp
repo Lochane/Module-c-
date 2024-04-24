@@ -6,12 +6,11 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 17:45:27 by lsouquie          #+#    #+#             */
-/*   Updated: 2024/04/24 17:09:54 by lsouquie         ###   ########.fr       */
+/*   Updated: 2024/04/24 17:15:24 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
 
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(37){
 	if (this->_grade >= 150)
@@ -57,13 +56,13 @@ int	Bureaucrat::getGrade() const{
 	return this->_grade;
 }
 
-void Bureaucrat::signForm(Form &form){
+void Bureaucrat::signForm(AForm &form){
 	try {
 		form.beSigned(*this);
-		std::cout << (*this).getName() << " signed " << form.getName() << std::endl;
+		std::cout << (*this).getName() << " signed " << form.getName() << " form" <<std::endl;
 	}
 	catch(std::exception &e){
-		std::cout << (*this).getName() << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+		std::cout << form.getName() << " form can't be signed by " << this->getName() << "\n\tReason : " << e.what() << std::endl;
 	}
 }
 
@@ -90,4 +89,17 @@ const char* Bureaucrat::GradeTooLowException::what() const throw(){
 std::ostream &operator<<(std::ostream &lhs, const Bureaucrat &rhs){
 	lhs << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() <<  "." << std::endl;
 	return lhs;
+}
+
+void Bureaucrat::executeForm(AForm const & form) const {
+	try {
+		form.execute(*this);
+		std::cout << this->getName() << " executed " << form.getName () << " form" << std::endl;
+	}
+	catch(std::exception &e)
+	{
+		std::cout << form.getName() << " form can't be executed by " << this->getName() << "\n\tReason : " << e.what() << std::endl;
+		if (form.getSigned() == true)
+			std::cout << "\tGrade required : " << form.getExecGrade() << std::endl;
+	}
 }
