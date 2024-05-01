@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 15:20:48 by lsouquie          #+#    #+#             */
-/*   Updated: 2024/04/26 18:24:33 by lsouquie         ###   ########.fr       */
+/*   Updated: 2024/05/01 14:02:06 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@
 #include "PresidentialPardonForm.hpp"
 
 class Intern {
+	private :
+		AForm* makePresidentialPardon(std::string target);
+		AForm* makeRobotomyRequest(std::string target);
+		AForm* makeShruberryCreation(std::string target);
 	public :
 		Intern();
 		Intern(const Intern& rhs);
@@ -27,6 +31,7 @@ class Intern {
 		Intern &operator=(const Intern& rhs);
 
 		AForm* makeForm(std::string name, std::string target);
+		
 	
 	class CantCreatForm : public std::exception{
 		virtual const char* what() const throw();

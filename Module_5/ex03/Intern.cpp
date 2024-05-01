@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 15:20:43 by lsouquie          #+#    #+#             */
-/*   Updated: 2024/04/26 18:42:18 by lsouquie         ###   ########.fr       */
+/*   Updated: 2024/05/01 14:02:19 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,28 @@ Intern& Intern::operator=(const Intern& rhs) {
 	return *this;
 }
 
-AForm* Intern::makeForm(std::string name, std::string target) {
+AForm* Intern::makePresidentialPardon(std::string target){
+	return new PresidentialPardonForm(target);
+}
+
+AForm* Intern::makeRobotomyRequest(std::string target){
+	return new RobotomyRequestForm(target);
+}
+
+AForm* Intern::makeShruberryCreation(std::string target){
+	return new ShrubberryCreationForm(target);
+}
+
+AForm* Intern::Intern::makeForm(std::string name, std::string target) {
 	std::string FormName[] = {"robotomy request", "presidential pardon", "shrubberry creation"};
 	
-	AForm* FormRef[] = {new RobotomyRequestForm(target), new PresidentialPardonForm(target), new ShrubberryCreationForm(target)};
-	// AForm* FormToReturn = NULL;
+AForm* (Intern::*FormRef[])(std::string) = {&Intern::makeRobotomyRequest, &Intern::makePresidentialPardon, &Intern::makeShruberryCreation};
 	
 	for(int i = 0; i < 3; i++){
 		if (name == FormName[i]){
 			std::cout << "Intern creates " << name << std::endl;
-			// FormToReturn = FormRef[i];
-			return FormRef[i];
+			 return (this->*FormRef[i])(target);
 		}
-		// else 
-		// 	delete FormRef[i];
 	}
 	throw CantCreatForm();
 	return NULL;
