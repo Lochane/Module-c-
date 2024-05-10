@@ -5,28 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/13 19:44:01 by marvin            #+#    #+#             */
-/*   Updated: 2024/01/13 19:44:01 by marvin           ###   ########.fr       */
+/*   Created: 2024/05/09 10:37:42 by marvin            #+#    #+#             */
+/*   Updated: 2024/05/09 10:37:42 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "whatever.hpp"
 
-int main() {
+int main (){
+	int a = 2;
+	int b = 3;
 
-	ScavTrap joel;
-	ScavTrap ellie("Ellie");
-	ScavTrap zombie("Zombie");
+	::swap(a, b);
+	std::cout << "a = " << a << ", b = " << b << std::endl;
+	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
+	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
 
-	joel.attack("Zombie");
-	ellie.attack("Zombie");
-	zombie.takeDamage(50);
-	zombie.attack("Joel");
-	joel.takeDamage(20);
-	joel.beRepaired(10);
-	ellie.attack("Zombie");
-	joel.attack("Zombie");
-	zombie.takeDamage(50);
-	ellie.guardGate();
+	std::string c = "chaine1";
+	std::string d = "chaine2";
+	::swap(c, d);
+	std::cout << "c = " << c << ", d = " << d << std::endl;
+	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
+	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
 	return 0;
 }

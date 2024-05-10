@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   B.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/13 19:44:01 by marvin            #+#    #+#             */
-/*   Updated: 2024/01/13 19:44:01 by marvin           ###   ########.fr       */
+/*   Created: 2024/05/08 11:21:37 by marvin            #+#    #+#             */
+/*   Updated: 2024/05/08 11:21:37 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#ifndef B_HPP
+#define B_HPP
 
-int main() {
+#include "Base.hpp"
 
-	ScavTrap joel;
-	ScavTrap ellie("Ellie");
-	ScavTrap zombie("Zombie");
+class B :public Base{
 
-	joel.attack("Zombie");
-	ellie.attack("Zombie");
-	zombie.takeDamage(50);
-	zombie.attack("Joel");
-	joel.takeDamage(20);
-	joel.beRepaired(10);
-	ellie.attack("Zombie");
-	joel.attack("Zombie");
-	zombie.takeDamage(50);
-	ellie.guardGate();
-	return 0;
-}
+};
+
+#endif

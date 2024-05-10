@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 16:32:47 by lsouquie          #+#    #+#             */
-/*   Updated: 2024/04/24 18:08:48 by lsouquie         ###   ########.fr       */
+/*   Created: 2024/05/10 15:27:15 by lsouquie          #+#    #+#             */
+/*   Updated: 2024/05/10 16:52:24 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-#define ANIMAL_H
+#ifndef EASYFIND_HPP
+#define EASYFIND_HPP
 
 #include <iostream>
+#include <algorithm>
+#include <vector>
+#include <exception>
 
-class Animal {
-	
-	protected : 
-		std::string _type;
-	
-	public :
-		Animal();
-		Animal(const std::string type);
-		Animal(const Animal& rhs);
-		virtual ~Animal();
-		Animal &operator=(const Animal& rhs);
-		
-		virtual void makeSound() const;
-		const std::string& getType() const;
-} ;
+
+class NoFound: public std::exception {
+	public:
+		const char* what() const throw(){
+			return "No match found";
+		}
+};
+
+template<typename T>
+typename T::iterator easyfind(T cont, int n){
+		typename T::iterator res = std::find(cont.begin(), cont.end(), n);
+		if (res == cont.end())
+			throw NoFound();
+		else
+			return res;
+}
+
 
 #endif

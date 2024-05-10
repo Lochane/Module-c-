@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/13 19:44:01 by marvin            #+#    #+#             */
-/*   Updated: 2024/01/13 19:44:01 by marvin           ###   ########.fr       */
+/*   Created: 2024/05/09 10:54:40 by marvin            #+#    #+#             */
+/*   Updated: 2024/05/09 10:54:40 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#ifndef ITER_HPP
+#define ITER_HPP
 
-int main() {
+#include <iostream>
+#include <iomanip>
+#include <string>
 
-	ScavTrap joel;
-	ScavTrap ellie("Ellie");
-	ScavTrap zombie("Zombie");
-
-	joel.attack("Zombie");
-	ellie.attack("Zombie");
-	zombie.takeDamage(50);
-	zombie.attack("Joel");
-	joel.takeDamage(20);
-	joel.beRepaired(10);
-	ellie.attack("Zombie");
-	joel.attack("Zombie");
-	zombie.takeDamage(50);
-	ellie.guardGate();
-	return 0;
+template<typename T, typename F>
+void iter(T* a, size_t lenght, F func){
+	for(size_t i = 0; i < lenght; i++)
+		func(a[i]);
 }
+
+template<typename T>
+void t_print(const T& e){
+	std::cout << e << std::endl;
+}
+
+#endif

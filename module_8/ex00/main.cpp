@@ -3,29 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/06 12:26:00 by lsouquie          #+#    #+#             */
-/*   Updated: 2024/05/08 11:05:24 by marvin           ###   ########.fr       */
+/*   Created: 2024/05/10 15:55:27 by lsouquie          #+#    #+#             */
+/*   Updated: 2024/05/10 16:53:26 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Serializer.hpp"
+#include "easyfind.hpp"
 
 int main() {
-    Data data;
-    data.str = "Hello";
+	std::vector<int> tab;
+    tab.push_back(1);
+    tab.push_back(2);
+    tab.push_back(3);
+    tab.push_back(4);
+	int target = 1;
 
-    uintptr_t serialized_ptr = Serializer::serialize(&data);
-
-    std::cout << "Serialized: " << serialized_ptr << std::endl;
-
-    Data *ptr = Serializer::deserialize(serialized_ptr);
-
-    std::cout << "Deserialized: " << ptr->str << " " << std::endl;
+    try {
+         std::vector<int>::iterator result = easyfind(tab, target);
+ 		std::cout << "Found occurence: " << *result << std::endl;
+    }
+    catch (std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
 
     return 0;
 }
-
-

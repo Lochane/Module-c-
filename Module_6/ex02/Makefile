@@ -1,4 +1,4 @@
-NAME		= Bureaucrat
+NAME		= Identify
 	
 CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98 -g
@@ -6,11 +6,11 @@ RM			= rm -rf
 
 OBJDIR = .objFiles
 
-FILES		= 
+FILES		= main
 
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
-HEADER		= 
+HEADER		= A.hpp B.hpp C.hpp Base.hpp
 
 #Colors:
 GREEN		=	\e[92;5;118m
