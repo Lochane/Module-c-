@@ -5,37 +5,41 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/10 15:55:27 by lsouquie          #+#    #+#             */
-/*   Updated: 2024/05/11 15:05:05 by lsouquie         ###   ########.fr       */
+/*   Created: 2024/05/11 19:35:45 by lsouquie          #+#    #+#             */
+/*   Updated: 2024/05/11 19:38:16 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
-#include <algorithm>
+#include "MutantStack.hpp"
 
-int main(void)
+int main()
 {
-	// VECTOR //
-	std::vector<int> v1;
-	for (size_t i = 0; i <= 10; i += 1) {
-		v1.push_back(i);
+	MutantStack<int> mstack;
+
+	mstack.push(5);
+	mstack.push(17);
+	
+	std::cout << mstack.top() << std::endl;
+	
+	mstack.pop();
+
+	std::cout << mstack.size() << std::endl;
+	
+	mstack.push(3);
+	mstack.push(5);
+	mstack.push(737);
+	mstack.push(0);
+	
+	MutantStack<int>::iterator it = mstack.begin();
+	MutantStack<int>::iterator ite = mstack.end();
+	
+	++it;
+	--it;
+	while (it != ite)
+	{
+	std::cout << *it << std::endl;
+	++it;
 	}
-	std::cout << "v1 = ";
-	for (std::vector<int>::iterator i = v1.begin(), e = v1.end(); i != e; i += 1) {
-		std::cout << *i << " ";
-	}
-	std::cout << std::endl;
-	try {
-		easyfind(v1, 0);
-	}
-	catch (const std::exception& e) {
-		std::cerr << e.what() << '\n';
-	}
-	try {
-		easyfind(v1, 20);
-	}
-	catch (const std::exception& e) {
-		std::cerr << e.what() << '\n';
-	}
-	return EXIT_SUCCESS;
+	std::stack<int> s(mstack);
+	return 0;
 }
