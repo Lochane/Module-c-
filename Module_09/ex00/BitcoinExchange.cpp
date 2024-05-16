@@ -28,6 +28,16 @@ bool BitcoinData::isLeapYear(int year) {
     return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
 }
 
+std::string TrimZero(std::string line){
+  std::string res = line;
+
+  if (res[0] == 0){
+    res[0] == res[1];
+    res[1] == NULL;
+}
+ return res;
+}
+
 void BitcoinData::CheckFormat(std::string line){
 
 	size_t frst_hyphen = line.find('-');
@@ -44,11 +54,14 @@ void BitcoinData::CheckFormat(std::string line){
 	std::string month = line.substr(frst_hyphen + 1, scnd_hyphen);
 	std::string day = line.substr(scnd_hyphen + 1, line.size());
 	int DaysInMonths[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+ month = TrimZero(month);
+ day = TrimZero(day);
 	if (std::atoi(month.c_str()) == 2 && isLeapYear(std::atoi(year.c_str())))
 		DaysInMonths[1] = 29;
 	std::cout << std::atoi(year.c_str()) << std::endl;
 	if (std::atoi(year.c_str()) < 2009 || std::atoi(year.c_str()) > 2022)
 		throw WrongFormat();
+
 	if (std::atoi(month.c_str()) < 1 || std::atoi(year.c_str()) > 12)
 		throw WrongFormat();
 	// if (std::atoi(day.c_str()) < 1 || std::atoi(day.c_str()) > DaysInMonths[std::atoi(month.c_str())])
