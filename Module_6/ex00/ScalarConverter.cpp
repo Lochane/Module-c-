@@ -6,28 +6,11 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 18:47:54 by lsouquie          #+#    #+#             */
-/*   Updated: 2024/05/06 18:25:01 by lsouquie         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:33:32 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-
-// void ScalarConverter::CheckType(std::string input) {
-	
-// 	char *endptr;
-	
-// 	if (input.length() == 1 && isdigit(input[0]))
-// 		_type = CHAR;
-// 	else if (strtol(input.c_str(), &endptr, 10) && !endptr[0])
-// 		_type = INT;
-// 	else if (strtod(input.c_str(), &endptr) && !endptr[0])
-// 		_type = DOUBLE;
-// 	else if (strtof(input.c_str(), &endptr) && !endptr[0])
-// 		_type = FLOAT;	
-// 	else
-// 		throw WrongInput();
-		
-// }
 
 static int	CountAfterPoint(std::string input) {
 	int count = 0;
@@ -112,16 +95,14 @@ void ScalarConverter::convert(std::string input){
 	
 	if (input.length() == 1 && !isdigit(input[0]))
 		_type = CHAR;
-	else if (strtol(input.c_str(), &endptr, 10) && endptr == NULL)
+	else if ((strtol(input.c_str(), &endptr, 10) || (input[0] == '0')) && endptr[0] == 0)
 		_type = INT;
-	else if (strtod(input.c_str(), &endptr) && endptr == NULL)
+	else if (strtod(input.c_str(), &endptr) && endptr[0] == NULL)
 		_type = DOUBLE;
-	else if (strtof(input.c_str(), &endptr) && endptr == NULL)
+	else if (strtof(input.c_str(), &endptr) && endptr[1] == 0)
 		_type = FLOAT;	
-	else{
-		std::cout << endptr;
+	else
 		throw WrongInput();
-	}
 	switch (_type) {
 		case CHAR:
 			ConvertFromChar(input[0], n);
@@ -141,5 +122,5 @@ void ScalarConverter::convert(std::string input){
 }
 
 const char* ScalarConverter::WrongInput::what() const throw() {
-	return "Error: Wrong input\n";
+	return "Error: Wrong input";
 }

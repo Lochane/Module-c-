@@ -1,7 +1,7 @@
 NAME		= ScalarConverter
 	
 CC			= c++
-FLAGS		= -Wall -Wextra -Werror -std=c++98 -g
+FLAGS		= #-Wall -Wextra -Werror -std=c++98 -g
 RM			= rm -rf
 
 OBJDIR = .objFiles
