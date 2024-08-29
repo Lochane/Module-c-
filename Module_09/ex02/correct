@@ -1,2 +1,0 @@
-	typename Container::iterator checkEnd = _data.begin();
-	std::advance(checkEnd, _sublist_size * nb_elements)

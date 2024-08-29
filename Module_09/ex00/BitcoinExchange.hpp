@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:31:58 by lsouquie          #+#    #+#             */
-/*   Updated: 2024/05/20 18:51:24 by lsouquie         ###   ########.fr       */
+/*   Updated: 2024/08/29 18:44:41 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ class BitcoinData {
 		
 	public :
 		BitcoinData();
-		// BitcoinData(const BitcoinData& rhs);
+		BitcoinData(const BitcoinData& rhs);
 		~BitcoinData();
-		// BitcoinData &operator=(const BitcoinData& rhs);
+		BitcoinData &operator=(const BitcoinData& rhs);
 		void CreateMap(const char *filename, BitcoinData &data);
 		void CheckFormat(std::string line);
 		bool isLeapYear(int year);

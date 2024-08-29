@@ -6,23 +6,25 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:05:01 by lsouquie          #+#    #+#             */
-/*   Updated: 2024/05/20 18:53:01 by lsouquie         ###   ########.fr       */
+/*   Updated: 2024/08/29 18:51:32 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
 BitcoinData::BitcoinData() {
-	
 }
 
 BitcoinData::~BitcoinData() {}
 
-// BitcoinData::BitcoinData(const BitcoinData& rhs) {}
+BitcoinData::BitcoinData(const BitcoinData& rhs) {
+	*this = rhs;
+}
 
-// BitcoinData& BitcoinData::operator=(const BitcoinData&rhs){
-	
-// }
+BitcoinData& BitcoinData::operator=(const BitcoinData& rhs) {
+	value = rhs.value;
+	return *this;
+}
 
 float BitcoinData::GetValue(std::string date){
     if(this->value.count(date) > 0)

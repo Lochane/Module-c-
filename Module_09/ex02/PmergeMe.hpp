@@ -19,20 +19,19 @@
 #include <algorithm>
 #include <string>
 #include <cstring>
+#include <ctime>
+#include <sstream>
 
 template<typename Container>
 struct Storage {
 	Container sublist;
 	int link;
-
-	// Storage(Container sublist, int link) : sublist(sublist), link(link) {}
 };
 
 template<typename Container>
 class PmergeMe{
 	private :
 		Container _data;
-		double _time;
 		size_t _sublist_size;
 		size_t _prev_sublist_size;
 		size_t _unsortedListSize;
@@ -41,6 +40,7 @@ class PmergeMe{
 		typename Container::iterator _checkEnd;
 		Container _oddNumbers;
 		int allow;
+		std::string list;
 
 		PmergeMe();
 		void Init(char **av);
@@ -53,13 +53,17 @@ class PmergeMe{
 		void CheckOtherSide(Storage<Container> *unsortedList, size_t index, int nb);
 
 	public:
+
 		PmergeMe(char **av);
+		PmergeMe(const PmergeMe& rhs);
+		PmergeMe &operator=(const PmergeMe& rhs);
 		~PmergeMe();
 		void FordJonshonAlgo();
-		void PrintSublist(Container& sublists);
+		void PrintList();
 		size_t UnstortedListCalcul();
 		bool is_sorted(size_t sizeElement);
-		Container GetData();
+		Container GetData() const;
+		std::string GetList() const;
 
 };
 

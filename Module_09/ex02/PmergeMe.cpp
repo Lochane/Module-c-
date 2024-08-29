@@ -251,21 +251,24 @@ void PmergeMe<Container>::FordJonshonAlgo(){
 	CreateSublist();
 	MergeSublist();
 	SortElement();
-	PrintSublist(_data);
 }
 
 template<typename Container>
-void PmergeMe<Container>::PrintSublist(Container& sublists) {
+void PmergeMe<Container>::PrintList(){
  typename Container::iterator it;
-    for (it = sublists.begin(); it != sublists.end(); ++it) {
-        std::cout << *it << " ";
+ 	list.clear();
+for (it = _data.begin(); it != _data.end(); ++it) {
+        std::stringstream ss;
+        ss << *it;
+        list.append(ss.str());
+        list.push_back(' ');
     }
-	std::cout << std::endl;
+	 std::cout << list << std::endl;
 }
 
 template<typename Container>
 void PmergeMe<Container>::Init(char **av){
-	std::string list;
+	
 	for (size_t i = 1; av[i]; i++){
 		list += av[i];
 		_data.push_back(atoi(av[i]));
@@ -285,7 +288,7 @@ void PmergeMe<Container>::Init(char **av){
 
 template<typename Container>
 PmergeMe<Container>::PmergeMe(char **av){
-	Init(av);
+		Init(av);
 	_last = _data.begin() + 2;
 	_sublist_size = 2;
 	nb_elements = 0;
@@ -293,8 +296,34 @@ PmergeMe<Container>::PmergeMe(char **av){
 }
 
 template<typename Container>
-Container PmergeMe<Container>::GetData(){
+Container PmergeMe<Container>::GetData() const{
 	return _data;
+}
+
+template<typename Container>
+std::string PmergeMe<Container>::GetList() const{
+	return list;
+}
+
+template<typename Container>
+PmergeMe<Container>::PmergeMe(const PmergeMe& rhs) {
+	*this = rhs;
+}
+
+template<typename Container>
+PmergeMe<Container>& PmergeMe<Container>::operator=(const PmergeMe<Container>& rhs) {
+	_data = rhs._data;
+	_sublist_size = rhs._sublist_size;
+	_prev_sublist_size = rhs._prev_sublist_size;
+	_unsortedListSize = rhs._unsortedListSize;
+	_last = rhs._last;
+	nb_elements = rhs.nb_elements;
+	_checkEnd = rhs._checkEnd;
+	_oddNumbers = rhs._oddNumbers;
+	allow = rhs.allow;
+	list = rhs.list;
+
+	return *this;
 }
 
 template<typename Container>

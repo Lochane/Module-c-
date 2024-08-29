@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 20:35:47 by lsouquie          #+#    #+#             */
-/*   Updated: 2024/05/22 15:33:02 by lsouquie         ###   ########.fr       */
+/*   Updated: 2024/08/29 18:52:53 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,54 +38,15 @@ void RPN::CheckIntergrity(std::string expre){
 	}
 }
 
-void RPN::DoTheThing(){
-	int res = _number.top();
-	_number.pop();
-	while (!_number.empty() && !_op.empty()){
-		switch (_op.top()){
-			case '-':{
-				std::cout << "oaoaoaoaaaa" << std::endl;
-				res -= _number.top();
-				_op.pop();
-				_number.pop();
-					break ;
-			}
-			case '*':{
-				std::cout << "ikikikikikikik" << std::endl;
-				res *= _number.top();
-				_op.pop();
-				_number.pop();
-					break ;
-			}
-			case '+': {
-				std::cout << _op.top() << std::endl;
-				res += _number.top();
-				_op.pop();
-				_number.pop();
-					break ;
-			}
-			case '/':{
-				std::cout << "prout" << std::endl;
-				res /= _number.top();
-				_op.pop();
-				_number.pop();
-					break ;
-			}
-		}
-	}
-	std::cout << res << std::endl;
-}
-
 RPN::RPN(std::string expre){
 	if (expre.find_first_not_of("0123456789*/-+ \t\n\r\v") != std::string::npos)
 		throw WrongInput();
 	if (!ft_isdigit(expre[0] - '0') || !ft_isdigit(expre[2] - '0') || ft_isdigit(expre[expre.size() - 1] - '0'))
 		throw WrongInput();
 	CheckIntergrity(expre);
-	int end_stack = expre.size() - 1;
-	for (int i = end_stack; i >= 0; i--){
+	for (size_t i = 0; expre[i]; i++){
 		if (expre[i] == ' ')
-			i--;
+			i++;
 		if (ft_isdigit(expre[i] - '0')){
 			if ((expre[i - 1] == ' ' && expre[i + 1] == ' ') || i == 0)
 				_number.push(expre[i] - '0');
@@ -94,25 +55,47 @@ RPN::RPN(std::string expre){
 		}
 		else if(!ft_isdigit(expre[i] - '0')){
 
-			if ((expre[i - 1] == ' ' && expre[i + 1] == ' ') || i == end_stack)
-				_op.push(expre[i]);
+			if ((expre[i - 1] == ' ') && (expre[i + 1] == ' ' || i == expre.size() - 1)){
+				int b = _number.top(); _number.pop();
+				int a = _number.top(); _number.pop();
+				int res = DoTheThing(a, b, expre[i]);
+				_number.push(res);
+			}
 			else
 				throw WrongInput();
 		}
 	}
+	std::cout << _number.top() << std::endl;
 }
 
-// RPN::RPN(const RPN& rhs){
-	
-// }
+int RPN::DoTheThing(int a, int b, const char op) {
+	if (op == '+') 
+		return a + b;
+	if (op == '-') 
+		return a - b;
+	if (op == '*') 
+		return a * b;
+	if (op == '/') {
+		if (b == 0) 
+			throw std::invalid_argument("Division by zero");
+		return a / b;
+	}
+	return 0;
+}
+
+RPN::RPN(const RPN& rhs){
+	*this = rhs;
+}
 
 RPN::~RPN(){
 	
 }
 
-// RPN& RPN::operator=(const RPN& rhs){
-	
-// }
+RPN& RPN::operator=(const RPN& rhs){
+	_number = rhs._number;
+	_op = rhs._op;
+	return *this;
+}
 
 const char *RPN::WrongInput::what() const throw(){
 	return "Wrong input";
