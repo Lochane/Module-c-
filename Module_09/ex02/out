@@ -1,0 +1,235 @@
+12 22 4 17 2 15 7 21 8 9 13 16 11 24 5 10 14 20 18 19 6 23 
+first = 22 last = 17 nb_elem = 11 sublist_size = 2
+first = 15 last = 21 nb_elem = 11 sublist_size = 2
+first = 9 last = 16 nb_elem = 11 sublist_size = 2
+first = 24 last = 10 nb_elem = 11 sublist_size = 2
+first = 20 last = 19 nb_elem = 11 sublist_size = 2
+first = 23 last = 23 nb_elem = 11 sublist_size = 2
+first = 22 last = 21 nb_elem = 6 sublist_size = 4
+first = 16 last = 24 nb_elem = 6 sublist_size = 4
+first = 20 last = 23 nb_elem = 6 sublist_size = 4
+first = 23 last = 23 nb_elem = 6 sublist_size = 4
+first = 22 last = 24 nb_elem = 3 sublist_size = 8
+first = 23 last = 23 nb_elem = 3 sublist_size = 8
+2 15 7 21 4 17 12 22 8 9 13 16 5 10 11 24 18 19 14 20 6 23 
+Data before remove 2 15 7 21 4 17 12 22 8 9 13 16 5 10 11 24 18 19 14 20 6 23 
+------begin---------
+nb element = 2
+sub_size = 8
+check end =18
+unsorted list size = 0
+nb element 2 = 2
+2 15 7 21 4 17 12 22 8 9 13 16 5 10 11 24 18 19 14 20 6 23 
+unsorted size = 0
+nb element 2 = 2
+------begin---------
+nb element = 2
+sub_size = 4
+check end =6
+check end after remove = 6
+Odd number = 6 23 
+unsorted list size = 2
+nb element 2 = 5
+2 15 7 21 4 17 12 22 8 9 13 16 5 10 11 24 18 19 14 20 
+ i == 0
+unsorted list = 8 9 13 16 
+ i == 1
+unsorted list = 18 19 14 20 
+unsorted size = 2
+----------------------
+Data = curretn sublist = 18 19 14 20 
+			second = 22 first = 24 link = -1
+Data = 2 15 7 21 4 17 12 22 5 10 11 24 
+--------------------------
+OMG
+qqqqqqqqqqqqqqqq
+Data = 18 19 14 20 2 15 7 21 4 17 12 22 5 10 11 24 
+--------------------------
+----------------------
+Data = curretn sublist = 8 9 13 16 
+lol
+Data = 18 19 14 20 2 15 7 21 4 17 12 22 5 10 11 24 
+--------------------------
+OMG
+Data = 8 9 13 16 18 19 14 20 2 15 7 21 4 17 12 22 5 10 11 24 
+--------------------------
+nb element 2 = 5
+------begin---------
+nb element = 5
+sub_size = 2
+check end =18
+check end after remove = 18
+Odd number = 6 23 
+unsorted list size = 5
+nb element 2 = 10
+8 9 13 16 18 19 14 20 2 15 7 21 4 17 12 22 5 10 11 24 
+ i == 0
+unsorted list = 18 19 
+ i == 1
+unsorted list = 2 15 
+ i == 2
+unsorted list = 4 17 
+ i == 3
+unsorted list = 5 10 
+ i == 4
+unsorted list = 6 23 
+unsorted size = 5
+----------------------
+Data = curretn sublist = 6 23 
+			second = 22 first = 24 link = 11
+Data = 8 9 13 16 14 20 7 21 12 22 11 24 
+--------------------------
+Data = 8 9 13 16 14 20 7 21 12 22 6 23 11 24 
+--------------------------
+----------------------
+Data = curretn sublist = 5 10 
+lol
+Data = 8 9 13 16 14 20 7 21 12 22 6 23 11 24 
+--------------------------
+second = 9 first = 16 nb = 10
+olalalala
+Data = 8 9 5 10 13 16 14 20 7 21 12 22 6 23 11 24 
+--------------------------
+----------------------
+Data = curretn sublist = 4 17 
+lol
+Data = 8 9 5 10 13 16 14 20 7 21 12 22 6 23 11 24 
+--------------------------
+second = 16 first = 20 nb = 17
+olalalala
+Data = 8 9 5 10 13 16 4 17 14 20 7 21 12 22 6 23 11 24 
+--------------------------
+----------------------
+Data = curretn sublist = 2 15 
+lol
+Data = 8 9 5 10 13 16 4 17 14 20 7 21 12 22 6 23 11 24 
+--------------------------
+second = 10 first = 16 nb = 15
+olalalala
+Data = 8 9 5 10 2 15 13 16 4 17 14 20 7 21 12 22 6 23 11 24 
+--------------------------
+----------------------
+Data = curretn sublist = 18 19 
+lol
+Data = 8 9 5 10 2 15 13 16 4 17 14 20 7 21 12 22 6 23 11 24 
+--------------------------
+Data = 8 9 5 10 2 15 13 16 4 17 18 19 14 20 7 21 12 22 6 23 11 24 
+--------------------------
+nb element 2 = 10
+------begin---------
+nb element = 10
+sub_size = 1
+check end =18
+check end after remove = 18
+Odd number = 6 23 
+unsorted list size = 10
+nb element 2 = 22
+8 9 5 10 2 15 13 16 4 17 18 19 14 20 7 21 12 22 6 23 11 24 
+ i == 0
+unsorted list = 5 
+ i == 1
+unsorted list = 2 
+ i == 2
+unsorted list = 13 
+ i == 3
+unsorted list = 4 
+ i == 4
+unsorted list = 18 
+ i == 5
+unsorted list = 14 
+ i == 6
+unsorted list = 7 
+ i == 7
+unsorted list = 12 
+ i == 8
+unsorted list = 6 
+ i == 9
+unsorted list = 11 
+unsorted size = 10
+----------------------
+Data = curretn sublist = 11 
+			second = 23 first = 24 link = -1
+Data = 8 9 10 15 16 17 19 20 21 22 23 24 
+--------------------------
+second = 10 first = 15 nb = 11
+olalalala
+Data = 8 9 10 11 15 16 17 19 20 21 22 23 24 
+--------------------------
+----------------------
+Data = curretn sublist = 6 
+lol
+Data = 8 9 10 11 15 16 17 19 20 21 22 23 24 
+--------------------------
+OMG
+Data = 6 8 9 10 11 15 16 17 19 20 21 22 23 24 
+--------------------------
+----------------------
+Data = curretn sublist = 12 
+lol
+Data = 6 8 9 10 11 15 16 17 19 20 21 22 23 24 
+--------------------------
+second = 11 first = 15 nb = 12
+olalalala
+Data = 6 8 9 10 11 12 15 16 17 19 20 21 22 23 24 
+--------------------------
+----------------------
+Data = curretn sublist = 7 
+lol
+Data = 6 8 9 10 11 12 15 16 17 19 20 21 22 23 24 
+--------------------------
+OMG
+Data = 6 7 8 9 10 11 12 15 16 17 19 20 21 22 23 24 
+--------------------------
+----------------------
+Data = curretn sublist = 14 
+lol
+Data = 6 7 8 9 10 11 12 15 16 17 19 20 21 22 23 24 
+--------------------------
+second = 12 first = 15 nb = 14
+olalalala
+Data = 6 7 8 9 10 11 12 14 15 16 17 19 20 21 22 23 24 
+--------------------------
+----------------------
+Data = curretn sublist = 18 
+lol
+Data = 6 7 8 9 10 11 12 14 15 16 17 19 20 21 22 23 24 
+--------------------------
+Data = 6 7 8 9 10 11 12 14 15 16 17 18 19 20 21 22 23 24 
+--------------------------
+----------------------
+Data = curretn sublist = 4 
+lol
+Data = 6 7 8 9 10 11 12 14 15 16 17 18 19 20 21 22 23 24 
+--------------------------
+OMG
+Data = 4 6 7 8 9 10 11 12 14 15 16 17 18 19 20 21 22 23 24 
+--------------------------
+----------------------
+Data = curretn sublist = 13 
+lol
+Data = 4 6 7 8 9 10 11 12 14 15 16 17 18 19 20 21 22 23 24 
+--------------------------
+second = 12 first = 14 nb = 13
+olalalala
+Data = 4 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 
+--------------------------
+----------------------
+Data = curretn sublist = 2 
+lol
+Data = 4 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 
+--------------------------
+OMG
+Data = 2 4 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 
+--------------------------
+----------------------
+Data = curretn sublist = 5 
+lol
+Data = 2 4 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 
+--------------------------
+second = 4 first = 6 nb = 5
+olalalala
+Data = 2 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 
+--------------------------
+nb element 2 = 22
+2 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 
+is sorted : 1
